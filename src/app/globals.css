@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@import "@heroui/styles";
+
+:root {
+  --background: #f3e8dc;
+  --foreground: #8a6e63;
+  --surface: #c9d8c5;
+  --surface-foreground: #8a6e63;
+  --overlay: #faf6f2;
+  --overlay-foreground: #8a6e63;
+  --accent: #d98c6a;
+  --accent-foreground: #faf6f2;
+  --warning: #e8b7a8;
+  --warning-foreground: #8a6e63;
+  --focus: #d98c6a;
+  --default: #faf6f2;
+  --default-foreground: #8a6e63;
+  --field-background: #faf6f2;
+  --field-foreground: #8a6e63;
+  --field-placeholder: color-mix(in srgb, #8a6e63 60%, white);
+  --field-border: color-mix(in srgb, #8a6e63 18%, transparent);
+  --secondary-background: #faf6f2;
+  --notification: #e8b7a8;
+  --link: #8a6e63;
+  --radius: 1rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), sans-serif;
+}
