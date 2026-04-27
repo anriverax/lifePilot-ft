@@ -4,7 +4,7 @@
 :root {
   --background: #f3e8dc;
   --foreground: #8a6e63;
-  --surface: #c9d8c5;
+  --surface: #9fb29b;
   --surface-foreground: #8a6e63;
   --overlay: #faf6f2;
   --overlay-foreground: #8a6e63;
@@ -28,12 +28,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-nunito);
+  --font-mono: var(--font-nunito);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: var(--font-nunito), sans-serif;
 }

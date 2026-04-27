@@ -46,22 +46,6 @@ export function PlanningIntakeForm(): React.ReactElement {
   return (
     <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
       <Card className="border border-[color-mix(in_srgb,var(--foreground)_10%,transparent)] bg-overlay shadow-[0_24px_80px_rgba(120,82,63,0.12)]">
-        <Card.Header className="flex flex-col gap-3 border-b border-[color-mix(in_srgb,var(--foreground)_10%,transparent)] px-6 py-6">
-          <span className="w-fit rounded-full bg-(--notification) px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-warning-foreground">
-            Ejemplo real
-          </span>
-          <div className="space-y-2">
-            <Card.Title className="text-3xl font-semibold text-(--foreground)">
-              Formulario de onboarding personal
-            </Card.Title>
-            <Card.Description className="max-w-2xl text-base leading-7 text-[color-mix(in_srgb,var(--foreground)_82%,white)]">
-              Este ejemplo usa HeroUI para la interfaz, React Hook Form para el estado y Zod para la
-              validacion. Sirve para capturar un objetivo principal, capacidad semanal y bloqueos antes
-              de crear un plan.
-            </Card.Description>
-          </div>
-        </Card.Header>
-
         <Card.Content className="px-6 py-6">
           <form noValidate className="grid gap-5" onSubmit={handleSubmit(onSubmit)}>
             <div className="grid gap-5 md:grid-cols-2">

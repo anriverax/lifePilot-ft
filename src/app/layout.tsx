@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "./globals.css";
-import { Button } from "@heroui/react";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"]
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const nunito = Nunito({
+  variable: "--font-nunito",
+  display: "swap",
   subsets: ["latin"]
 });
 
@@ -24,11 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>): React.ReactElement {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        {children}
-        <Button>My Button</Button>
-      </body>
+    <html lang="en" className={`${nunito.variable} h-full antialiased`}>
+      <body>{children}</body>
     </html>
   );
 }

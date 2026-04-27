@@ -1,46 +1,75 @@
-import { PlanningIntakeForm } from "@/components/planning-intake-form";
+"use client";
 
-export default function Home(): React.ReactElement {
+import { Apple, Calendar, Dumbbell, Leaf } from "lucide-react";
+import { motion } from "motion/react";
+
+const AuthPage = (): React.JSX.Element => {
+  const features = [
+    { icon: Calendar, label: "Plan your day" },
+    { icon: Apple, label: "Eat well" },
+    { icon: Dumbbell, label: "Move your body" },
+    { icon: Leaf, label: "Build habits" }
+  ];
+
   return (
-    <main className="relative flex-1 overflow-hidden px-6 py-10 sm:px-10 lg:px-12">
-      <div className="absolute inset-x-0 top-0 -z-10 h-56 bg-[radial-gradient(circle_at_top_left,rgba(217,140,106,0.24),transparent_52%),radial-gradient(circle_at_top_right,rgba(201,216,197,0.4),transparent_46%)]" />
+    <main className="min-h-screen">
+      {/* Desktop Split Layout */}
+      <div className="lg:grid lg:grid-cols-2 lg:min-h-screen">
+        {/* Left Side - Branding (Desktop only) */}
+        <motion.div
+          className="hidden lg:flex lg:flex-col lg:justify-center lg:items-center"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Logo */}
+          <motion.div
+            className="w-20 h-20 rounded-2xl bg-accent flex items-center justify-center mb-4 shadow-lg"
+            whileHover={{ scale: 1.05, rotate: 5 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          >
+            <Leaf className="w-10 h-10 text-white" strokeWidth={2.5} />
+          </motion.div>
 
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-10">
-        <section className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-          <div className="space-y-5">
-            <p className="w-fit rounded-full bg-(--notification) px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-warning-foreground">
-              HeroUI + React Hook Form + Zod
-            </p>
-            <div className="space-y-4">
-              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-(--foreground) sm:text-5xl lg:text-6xl">
-                Un formulario realista para iniciar el plan de trabajo de un usuario.
-              </h1>
-              <p className="max-w-2xl text-lg leading-8 text-[color-mix(in_srgb,var(--foreground)_82%,white)]">
-                La pantalla ya no es el starter de Next. Ahora tienes un ejemplo listo para extender a
-                onboarding, discovery o captura de brief con validacion tipada y una interfaz alineada
-                con tu paleta.
-              </p>
-            </div>
+          {/* Title */}
+          <h1 className="text-4xl font-bold text-foreground mb-2">LifePilot</h1>
+
+          {/* Tagline */}
+          <p className="text-surface font-black text-center tracking-wide leading-relaxed mb-4 max-w-md text-lg">
+            You pilot. We organize. You live better.
+          </p>
+          <div className="flex items-center gap-3 mb-8">
+            <span className="h-px w-16 bg-accent/40" />
+            <Leaf className="h-4 w-4 text-surface" aria-hidden="true" />
+            <span className="h-px w-16 bg-accent/40" />
           </div>
-
-          <div className="grid gap-3 rounded-[2rem] border border-[color-mix(in_srgb,var(--foreground)_10%,transparent)] bg-overlay p-5 text-sm text-(--foreground) shadow-[0_18px_40px_rgba(138,110,99,0.08)]">
-            <div className="flex items-center justify-between rounded-2xl bg-surface px-4 py-3">
-              <span>Estado del formulario</span>
-              <strong>Cliente</strong>
-            </div>
-            <div className="flex items-center justify-between rounded-2xl bg-(--secondary-background) px-4 py-3">
-              <span>Validacion</span>
-              <strong>Zod</strong>
-            </div>
-            <div className="flex items-center justify-between rounded-2xl bg-(--secondary-background) px-4 py-3">
-              <span>UI</span>
-              <strong>HeroUI</strong>
-            </div>
+          {/* Feature Grid */}
+          <div className="flex gap-8 justify-center mb-16">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.label}
+                className="flex flex-col items-center justify-center rounded-xl"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
+                whileHover={{ y: -4 }}
+              >
+                <div className="w-12 h-12 rounded-full flex items-center justify-center bg-surface/20">
+                  <feature.icon className="w-6 h-6 text-surface font-black" strokeWidth={2} />
+                </div>
+                <span className="text-sm text-foreground/80 text-center font-medium">
+                  {feature.label}
+                </span>
+              </motion.div>
+            ))}
           </div>
-        </section>
-
-        <PlanningIntakeForm />
+          <p className="italic text-surface font-black">
+            Life in harmony, every day. <span className="text-accent">♡</span>
+          </p>
+        </motion.div>
       </div>
     </main>
   );
-}
+};
+
+export default AuthPage;
